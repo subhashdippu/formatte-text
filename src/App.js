@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react'
+import Navbar from './Component/Navbar.js'
+import Form from './Component/Form.js'
+import About from './Component/About.js'
 function App() {
+  const [mode, SetMode] = useState("dark")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Navbar title={"Subhash"} mode={mode} />
+      <Form heading="this is Case Changer" />
+      {/* <About /> */}
+    </>
+  )
 }
 
-export default App;
+export default App
