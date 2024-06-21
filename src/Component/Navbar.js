@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+
+
 const Navbar = (props) => {
     return (
         <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}>
@@ -32,7 +34,7 @@ const Navbar = (props) => {
                         </li>
                     </ul>
                     <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                        <input onClick={props.toggleMode} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                         <label className="form-check-label" htmlFor="flexCheckDefault">
                             Default checkbox
                         </label>

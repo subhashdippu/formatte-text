@@ -8,20 +8,23 @@ const Form = (props) => {
     const handleUpperCase = () => {
         let upper = text.toUpperCase()
         setText(upper)
+        props.showAlert("Converted into UpperCase", "success")
     }
     const handleLowerCase = () => {
         let lower = text.toLowerCase()
         setText(lower)
+        props.showAlert("Converted into LowerCase", "success")
     }
     const handleDelete = () => {
         setText("")
+        props.showAlert("danger", "danger")
     }
     return (
         <>
             <div className='container' >
                 <div className="mb-3">
                     <label for="exampleFormControlTextarea1" className="form-label">{props.heading}</label>
-                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleOnChange}></textarea>
+                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleOnChange} style={{ backgroundColor: props.mode === "light" ? "dark" : "light" }}></textarea>
                 </div>
                 <button className='btn btn-primary mx-4' onClick={handleUpperCase}>Upper Case</button>
                 <button className='btn btn-secondary mx-4' onClick={handleLowerCase}>Lower Case</button>
@@ -30,7 +33,7 @@ const Form = (props) => {
                 <h1>Your Text Summary</h1>
                 <p>{text.split(" ").length} Words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length} Minutes to read</p>
-            </div>
+            </div >
         </>
     )
 }
